@@ -11,3 +11,21 @@ set sw=2
 set relativenumber
 set laststatus=2
 set noshowmode
+
+call plug#begin('~/.vim/plugged')
+
+" IDE
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
+
+call plug#end()
+
+let NERDTreeQuitOnOpen=1
+let mapleader=" "
+
+nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>nt :NERDTreeFind<CR>
+
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
