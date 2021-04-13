@@ -1,3 +1,4 @@
+" Configuraciones iniciales
 set number
 set mouse=a
 set numberwidth=1
@@ -12,6 +13,7 @@ set relativenumber
 set laststatus=2
 set noshowmode
 
+" Plugins
 call plug#begin('~/.vim/plugged')
 
 " IDE
@@ -30,7 +32,7 @@ let mapleader=" "
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [], ['relativepath', 'modified']],
+      \   'left': [ [ 'mode', 'paste' ], [], [ 'relativepath', 'modified' ]],
       \   'right': [ [ 'kitestatus' ], [ 'filetype', 'filename', 'modified', 'percent', 'lineinfo' ], [ 'gitbranch' ] ]
       \ },
       \ 'component_function': {
@@ -44,7 +46,7 @@ let g:lightline = {
       \ }
 
 " Kite
-let g:kite_supported_languages = [ 'javascript', 'python', 'java', 'html', 'css', 'go' ]
+let g:kite_supported_languages = [ 'javascript', 'python' ]
 
 " coc
 autocmd FileType python let b:coc_suggest_disable = 1
@@ -57,6 +59,19 @@ nmap <Leader>s <Plug>(easymotion-s2)
 " NERDTree
 nmap <Leader>nt :NERDTreeFind<CR>
 
+" coc
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " Atajos Personalizados
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
+
+" Use <c-space> to trigger completion
+if &filetype == "javascript" || &filetype == "python"
+  inoremap <c-space> <C-x><C-u>
+else
+  inoremap <silent><expr> <c-space> coc#refresh()
+endif
