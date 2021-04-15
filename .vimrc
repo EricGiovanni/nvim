@@ -2,7 +2,7 @@
 set number
 set mouse=a
 set numberwidth=1
-set clipboard=unnamed
+set clipboard=unnamedplus
 syntax enable
 set showcmd
 set ruler
@@ -12,6 +12,8 @@ set sw=2
 set relativenumber
 set laststatus=2
 set noshowmode
+set path+=**
+set wildmenu
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -22,7 +24,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let NERDTreeQuitOnOpen=1
@@ -32,8 +34,8 @@ let mapleader=" "
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [], [ 'relativepath', 'modified' ]],
-      \   'right': [ [ 'kitestatus' ], [ 'filetype', 'filename', 'modified', 'percent', 'lineinfo' ], [ 'gitbranch' ] ]
+      \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch' ], [ 'relativepath', 'modified' ]],
+      \   'right': [ [ 'kitestatus' ], [ 'filetype', 'filename', 'modified', 'percent', 'lineinfo' ]]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
