@@ -67,6 +67,12 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Git
+nmap <Leader>gl :Git pull<CR>
+nmap <Leader>gs :Git push<CR>
+nmap <Leader>gc :Git commit<CR>
+nmap <Leader>ga :Git add .<CR>
+
 " Atajos Personalizados
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
