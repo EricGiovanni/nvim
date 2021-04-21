@@ -25,6 +25,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 let NERDTreeQuitOnOpen=1
@@ -48,7 +50,7 @@ let g:lightline = {
       \ }
 
 " Kite
-let g:kite_supported_languages = [ 'javascript', 'python' ]
+let g:kite_supported_languages = [ 'javascript', 'python', 'html', 'css' ]
 
 " coc
 autocmd FileType python let b:coc_suggest_disable = 1
@@ -76,9 +78,10 @@ nmap <Leader>ga :Git add .<CR>
 " Atajos Personalizados
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
+imap jj <Esc>
 
 " Use <c-space> to trigger completion
-if &filetype == "javascript" || &filetype == "python"
+if &filetype == "javascript" || &filetype == "python" || &filetype == "html" || &filetype == "css"
   inoremap <c-space> <C-x><C-u>
 else
   inoremap <silent><expr> <c-space> coc#refresh()
