@@ -8,7 +8,7 @@ set showcmd
 set ruler
 set encoding=utf-8
 set showmatch
-set sw=2
+set ts=2 sw=2
 set relativenumber
 set laststatus=2
 set noshowmode
@@ -57,6 +57,9 @@ autocmd FileType python let b:coc_suggest_disable = 1
 autocmd FileType javascript let b:coc_suggest_disable = 1
 autocmd FileType scss setl iskeyword+=@-@
 
+" Different Indents
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab " au FileType java setl ts=4 sw=4 et
+
 " EasyMotion
 nmap <Leader>s <Plug>(easymotion-s2)
 
@@ -78,7 +81,6 @@ nmap <Leader>ga :Git add .<CR>
 " Atajos Personalizados
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
-imap jj <Esc>
 
 " Use <c-space> to trigger completion
 if &filetype == "javascript" || &filetype == "python" || &filetype == "html" || &filetype == "css"
