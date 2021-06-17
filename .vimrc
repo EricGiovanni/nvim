@@ -1,6 +1,6 @@
 " Configuraciones iniciales
-set number
-set mouse=a
+set number 
+set mouse=a 
 set numberwidth=1
 set clipboard=unnamedplus
 syntax enable
